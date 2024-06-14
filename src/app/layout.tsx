@@ -3,8 +3,8 @@ import { Providers } from "@/components/shared/Providers";
 import { Navbar } from "@/components/shared/Navbar";
 
 export const metadata: Metadata = {
-  title: "Marketplace",
-  description: "",
+  title: "Polygodz - Marketplace",
+  description: "A community driven NFT marketplace",
 };
 
 export default function RootLayout({
