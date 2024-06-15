@@ -4,34 +4,71 @@ import { NFT_CONTRACTS } from "@/consts/nft_contracts";
 import { Link } from "@chakra-ui/next-js";
 import {
   Box,
+  Button,
+  ButtonGroup,
   Card,
   CardBody,
-  CardHeader,
+  CardFooter,
+  Divider,
   Flex,
   Heading,
   Image,
   Stack,
-  StackDivider,
   Text,
 } from "@chakra-ui/react";
 
 export default function Home() {
   return (
     <Box>
-      {/* Hero Image Section */}
+      {/* Hero Section with Background Image */}
       <Box
+        position="relative"
+        width="100%"
+        height="95vh" // Adjust height as needed
         backgroundImage="url('/images/polygodzHero.jpg')"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
-        minH="60vh" // Adjust height as needed
-      />
+      >
+        <Flex width="100%" height="100%">
+          {/* Left Column */}
+          <Box width={{ base: "100%", md: "50%" }} />
+          {/* Right Column */}
+          <Box
+            width={{ base: "100%", md: "50%" }}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            background="linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))"
+            color="white"
+            padding="20px"
+          >
+            <Stack spacing="6" textAlign="center">
+              <Heading size="2xl">Welcome to Polygodz</Heading>
+              <Text fontSize="xl">
+                Explore the most exciting NFT collections in the Battle Arena.
+                <br />Join now and be a part of the adventure!
+              </Text>
+              <Box display="flex" justifyContent="center">
+                <ButtonGroup spacing="4">
+                  <Button variant="solid" colorScheme="blue">
+                    Get Started
+                  </Button>
+                  <Button variant="outline" colorScheme="blue">
+                    Learn More
+                  </Button>
+                </ButtonGroup>
+              </Box>
+            </Stack>
+          </Box>
+        </Flex>
+      </Box>
 
       {/* Trending Collections Section */}
-      <Box mt="24px" m="auto">
+      <Box mt="44px" m="auto">
         <Flex direction="column" gap="4">
-          <Heading ml="20px" mt="40px">
-            Trending collections
+          <Heading mx="auto" mt="20px">
+            Battle Arena Collections
           </Heading>
           <Flex
             direction="row"
@@ -49,7 +86,7 @@ export default function Home() {
                 href={`/collection/${item.chain.id.toString()}/${item.address}`}
               >
                 <Image src={item.thumbnailUrl} />
-                <Text fontSize="large" mt="10px">
+                <Text fontSize="lg" mx="auto" mt="10px">
                   {item.title}
                 </Text>
               </Link>
