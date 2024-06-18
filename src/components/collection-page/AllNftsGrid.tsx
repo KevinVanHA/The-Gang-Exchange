@@ -76,9 +76,9 @@ export function AllNftsGrid() {
               }/token/${item.id.toString()}`}
               _hover={{ textDecoration: "none" }}
             >
-              <Flex direction="column">
+              <Flex direction="column" align="center">
                 <MediaRenderer client={client} src={item.metadata.image} />
-                <Text>{item.metadata?.name ?? "Unknown item"}</Text>
+                <Text textAlign="center" mt="2">{item.metadata?.name ?? "Unknown item"}</Text>
               </Flex>
             </Box>
           ))
