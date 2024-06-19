@@ -6,10 +6,6 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
   Flex,
   Heading,
   Image,
@@ -84,9 +80,12 @@ export default function Home() {
                 h={400}
                 key={item.address}
                 href={`/collection/${item.chain.id.toString()}/${item.address}`}
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
               >
                 <Image src={item.thumbnailUrl} />
-                <Text fontSize="lg" mx="auto" mt="10px">
+                <Text textAlign="center" fontSize="lg" mt="10px">
                   {item.title}
                 </Text>
               </Link>

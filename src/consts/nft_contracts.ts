@@ -44,4 +44,31 @@ export const NFT_CONTRACTS: NftContract[] = [
     type: "ERC721",
   },
 
+  {
+    address: "0xa6BE79E99fF0ADE7d0948881eae8f9dD95679100",
+    chain: polygon,
+    title: "Cyber Punkz",
+    thumbnailUrl:
+      "/images/cyberpunk.jpg",
+    type: "ERC721",
+  },
+
+  {
+    address: "0xF89AC2AF2D0F6D24a99C7C83281050A13615c210",
+    chain: polygon,
+    title: "GhoulBusterz",
+    thumbnailUrl:
+      "/images/ghoulbusterz.png",
+    type: "ERC721",
+  },
+  {
+    address: "0x209E65fc2b4eF549d9B84fC8f8c7708f6aFb01b7",
+    chain: polygon,
+    title: "Legacy Skullz",
+    thumbnailUrl:
+      "/images/legacyskullz.png",
+    type: "ERC721",
+  },
+  
+  
 ];
