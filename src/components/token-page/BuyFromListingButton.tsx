@@ -12,6 +12,7 @@ import {
 } from "thirdweb/react";
 import type { Account } from "thirdweb/wallets";
 import { useState } from "react";
+import { approve } from "thirdweb/extensions/erc20";
 
 type Props = {
   listing: DirectListing;
@@ -37,6 +38,17 @@ export default function BuyFromListingButton(props: Props) {
           await switchChain(nftContract.chain);
         }
         try {
+          // Approve the spending of the ERC-20 tokens
+          await approve({
+            contract: {
+              address: "0x202929e8976d447f2f2b31b76c4cBFeDF134844f",
+              client,
+              chain: nftContract.chain,
+            },
+            spender: "0xFa4a333354d9ae66b9dD728411d040d19f47E428",
+            amount: 100000000000000000, // Adjust the amount as needed
+          });
+
           const transaction = buyFromListing({
             contract: marketplaceContract,
             listingId: listing.id,
