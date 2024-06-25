@@ -29,16 +29,13 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
         symbol: "Godz",
         icon: "/erc20-icons/usdc.png",
       },
-      {
-        tokenAddress: "0xbcf39d8616d15fd146dd5db4a86b4f244a9bc772",
-        symbol: "USDT",
-        icon: "/erc20-icons/usdt.png",
-      },
+      
     ],
   },
 ];
-
+/*
 export const NATIVE_TOKEN_ICON_MAP: { [key in Chain["id"]]: string } = {
   1: "/native-token-icons/eth.png",
    [polygon.id]: "/native-token-icons/matic.png",
 };
+*/
