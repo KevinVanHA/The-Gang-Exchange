@@ -46,7 +46,7 @@ export default function BuyFromListingButton(props: Props) {
               chain: nftContract.chain,
             },
             spender: "0xFa4a333354d9ae66b9dD728411d040d19f47E428",
-            amount: 100000000000000000, // Adjust the amount as needed
+            amount: 10, // Adjust the amount as needed
           });
 
           const transaction = buyFromListing({
@@ -55,21 +55,25 @@ export default function BuyFromListingButton(props: Props) {
             quantity: listing.quantity,
             recipient: account.address,
           });
+
           const receipt = await sendTransaction({
             transaction,
             account,
           });
+
           await waitForReceipt({
             transactionHash: receipt.transactionHash,
             client,
             chain: nftContract.chain,
           });
+
           toast({
             title: "Purchase completed! The asset(s) should arrive in your account shortly",
             status: "success",
             duration: 4000,
             isClosable: true,
           });
+
           refetchAllListings();
         } catch (err) {
           console.error(err);
@@ -78,6 +82,14 @@ export default function BuyFromListingButton(props: Props) {
             toast({
               title: "You don't have enough funds for this purchase.",
               description: `Make sure you have enough gas for the transaction + ${listing.currencyValuePerToken.displayValue} ${listing.currencyValuePerToken.symbol}`,
+              status: "error",
+              isClosable: true,
+              duration: 7000,
+            });
+          } else if (errorMessage.includes("ERC20: transfer amount exceeds balance")) {
+            toast({
+              title: "Insufficient ERC-20 token balance.",
+              description: "You do not have enough ERC-20 tokens for this transaction.",
               status: "error",
               isClosable: true,
               duration: 7000,
