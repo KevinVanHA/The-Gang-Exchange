@@ -1,7 +1,8 @@
 import { client } from "@/consts/client";
 import { useMarketplaceContext } from "@/hooks/useMarketplaceContext";
 import { Button, useToast } from "@chakra-ui/react";
-import { sendTransaction, waitForReceipt } from "thirdweb";
+import { sendTransaction, waitForReceipt, getContract } from "thirdweb";
+import { toEther } from "thirdweb/utils";
 import {
   buyFromListing,
   type DirectListing,
@@ -38,17 +39,32 @@ export default function BuyFromListingButton(props: Props) {
           await switchChain(nftContract.chain);
         }
         try {
-          // Approve the spending of the ERC-20 tokens
-          await approve({
-            contract: {
-              address: "0x202929e8976d447f2f2b31b76c4cBFeDF134844f",
-              client,
-              chain: nftContract.chain,
-            },
-            spender: "0xFa4a333354d9ae66b9dD728411d040d19f47E428",
-            amount: 10, // Adjust the amount as needed
+          // Create the custom token contract
+          const customTokenContract = getContract({
+            address: "0x202929e8976d447f2f2b31b76c4cBFeDF134844f",
+            client,
+            chain: nftContract.chain,
           });
 
+          // Approve the spending of the ERC-20 tokens
+          const approvalTx = approve({
+            contract: customTokenContract,
+            spender: "0xFa4a333354d9ae66b9dD728411d040d19f47E428",
+            amount: toEther(BigInt(listing?.pricePerToken)),
+          });
+
+          const receiptApproval = await sendTransaction({
+            transaction: approvalTx,
+            account,
+          });
+
+          await waitForReceipt({
+            transactionHash: receiptApproval.transactionHash,
+            client,
+            chain: nftContract.chain,
+          });
+
+          // Proceed with the purchase
           const transaction = buyFromListing({
             contract: marketplaceContract,
             listingId: listing.id,
