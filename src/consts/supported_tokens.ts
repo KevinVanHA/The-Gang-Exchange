@@ -33,9 +33,8 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
     ],
   },
 ];
-/*
+
 export const NATIVE_TOKEN_ICON_MAP: { [key in Chain["id"]]: string } = {
   1: "/native-token-icons/eth.png",
    [polygon.id]: "/native-token-icons/matic.png",
 };
-*/
