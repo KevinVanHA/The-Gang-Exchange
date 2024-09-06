@@ -27,15 +27,18 @@ import {
   useDisconnect,
 } from "thirdweb/react";
 import type { Wallet } from "thirdweb/wallets";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { SideMenu } from "./SideMenu";
 
 export function Navbar() {
   const account = useActiveAccount();
   const wallet = useActiveWallet();
   const { colorMode } = useColorMode();
+
   return (
     <Box py="30px" px={{ base: "20px", lg: "50px" }}>
       <Flex direction="row" justifyContent="space-between">
+        {/* Branding */}
         <Box my="auto">
           <Heading
             as={Link}
@@ -45,10 +48,19 @@ export function Navbar() {
             bgClip="text"
             fontWeight="extrabold"
           >
-            {/* Replace this with your own branding */}
             Polygodz
           </Heading>
         </Box>
+
+        {/* Centered Menu */}
+        <Flex align="center" gap="20px">
+          <MenuItemLink label="Home" href="/" />
+          <MenuItemLink label="About" href="/aboutUs" />
+          <MenuItemLink label="Launchpad" href="/launchpad" />
+          <MenuWithSubpages />
+        </Flex>
+
+        {/* Wallet/Theme */}
         <Box display={{ lg: "block", base: "none" }}>
           <ToggleThemeButton />
           {account && wallet ? (
@@ -61,9 +73,53 @@ export function Navbar() {
             />
           )}
         </Box>
+
         <SideMenu />
       </Flex>
     </Box>
+  );
+}
+
+function MenuItemLink({ label, href }: { label: string; href: string }) {
+  return (
+    <Box>
+      <Heading
+        as={Link}
+        href={href}
+        size="md"
+        fontWeight="semibold"
+        _hover={{ textDecoration: "underline" }}
+      >
+        {label}
+      </Heading>
+    </Box>
+  );
+}
+
+function MenuWithSubpages() {
+  return (
+    <Menu>
+      <MenuButton
+        as={Button}
+        rightIcon={<ChevronDownIcon />}
+        variant="ghost"
+        size="md"
+        fontWeight="semibold"
+      >
+        Services
+      </MenuButton>
+      <MenuList>
+        <MenuItem as={Link} href="/services/consulting">
+          Consulting
+        </MenuItem>
+        <MenuItem as={Link} href="/services/development">
+          Development
+        </MenuItem>
+        <MenuItem as={Link} href="/services/design">
+          Design
+        </MenuItem>
+      </MenuList>
+    </Menu>
   );
 }
 
@@ -78,6 +134,7 @@ function ProfileButton({
   const { data: ensName } = useGetENSName({ address });
   const { data: ensAvatar } = useGetENSAvatar({ ensName });
   const { colorMode } = useColorMode();
+
   return (
     <Menu>
       <MenuButton as={Button} height="56px">
