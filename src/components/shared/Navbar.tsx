@@ -55,7 +55,7 @@ export function Navbar() {
         {/* Centered Menu */}
         <Flex align="center" gap="20px">
           <MenuItemLink label="Home" href="/" />
-          <MenuItemLink label="About" href="/aboutUs" />
+          <MenuItemLink label="About" href="/about" />
           <MenuItemLink label="Launchpad" href="/launchpad" />
           <MenuWithSubpages />
         </Flex>
@@ -103,10 +103,10 @@ function MenuWithSubpages() {
         as={Button}
         rightIcon={<ChevronDownIcon />}
         variant="ghost"
-        size="md"
+        size="lg"
         fontWeight="semibold"
       >
-        Services
+        Staking
       </MenuButton>
       <MenuList>
         <MenuItem as={Link} href="/services/consulting">
