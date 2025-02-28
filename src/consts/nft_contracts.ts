@@ -1,5 +1,5 @@
 import type { Chain } from "thirdweb";
-import { avalancheFuji, polygonAmoy } from "./chains";
+import { polygon } from "./chains";
 
 export type NftContract = {
   address: string;
@@ -20,56 +20,47 @@ export type NftContract = {
  */
 export const NFT_CONTRACTS: NftContract[] = [
   {
-    address: "0x6b869a0cF84147f05a447636c42b8E53De65714E",
-    chain: avalancheFuji,
-    title: "Steakhouse: Liberatorz",
+    address: "0xf1360565FC9d0De609581762D4ea45981a28cB7a",
+    chain: polygon,
+    title: "Gangskullz",
     thumbnailUrl:
-      "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeigonh3hde5suwcb3qvkh6ljtvxv7ubfmcqbwfvi3ihoi3igd27jwe/SteakhouseLogo.svg",
+      "/public/collections/Gangskullz.webp",
     type: "ERC721",
   },
   {
-    address: "0xC5A2c72c581eA4A17e17bEeF38a9597132830401",
-    chain: avalancheFuji,
-    title: "Ugly Waifu",
+    address: "0x6AC938836576792adBe8e166Eb8627bFd93351F4",
+    chain: polygon,
+    title: "Gangskullz Certified OG's",
     thumbnailUrl:
       "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeidaadqapi7twzd7pjp24tu4ngsr3teubrhop7hg3jk3oj6lqysfgm/OS-LOGO.png",
-    slug: "ugly-waifu",
     type: "ERC721",
   },
 
   {
-    address: "0x0896Db00D8987Fba2152aa7c14c4255eBC7354cE",
-    chain: avalancheFuji,
-    title: "Unnamed Collection",
+    address: "0x547d68CB905A4e78d9692E586a7d5445339DE76F",
+    chain: polygon,
+    title: "Mischief Mythology",
     description: "",
     thumbnailUrl:
       "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/Qmct2vS78Uwug3zVtqQognskPPRmd4wRQiaDAQWt1kRJws/0.png",
-    slug: "unnamed-collection",
     type: "ERC721",
   },
   {
-    address: "0x0ACaCa3d3F64bb6e6D3564BBc891c58Bd4A4c83c",
-    chain: avalancheFuji,
-    title: "GoroBot",
+    address: "0x4df6e0E7d1c460075099d233F4B361e5B80307a7",
+    chain: polygon,
+    title: "Sick Skull Gang: Omega",
     thumbnailUrl:
       "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeiay3ffxy3os56bvnu5cmq7gids4v6n4hf5nvvcb3gy2dzavi3ltnu/profile.jpg",
     slug: "gorobot",
     type: "ERC721",
   },
   {
-    address: "0x4b6CDEFF5885A57678261bb95250aC43aD490752",
-    chain: polygonAmoy,
-    title: "Mata NFT",
+    address: "0x2953399124F0cBB46d2CbACD8A89cF0599974963",
+    chain: polygon,
+    title: "Sick Ape Antisocial Group",
     thumbnailUrl:
       "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeidec7x6bptqmrxgptaedd7wfwxbsccqfogzwfsd4a7duxn4sdmnxy/0.png",
     type: "ERC721",
   },
-  {
-    address: "0xd5e815241882676F772A624E3892b27Ff3a449c4",
-    chain: avalancheFuji,
-    title: "Cats (ERC1155)",
-    thumbnailUrl:
-      "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeif2nz6wbwuryijk2c4ayypocibexdeirlvmciqjyvlzz46mzoirtm/0.png",
-    type: "ERC1155",
-  },
+
 ];

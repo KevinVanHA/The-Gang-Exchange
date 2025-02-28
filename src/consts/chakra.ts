@@ -7,4 +7,8 @@ export const chakraThemeConfig: ThemeConfig = {
 
 export const chakraTheme = extendTheme({
   config: chakraThemeConfig,
+  fonts: {
+    heading: `Montserrat, sans-serif`,
+    body: `Montserrat, sans-serif`,
+  },
 });

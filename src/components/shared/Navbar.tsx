@@ -9,10 +9,6 @@ import {
   Button,
   Flex,
   Heading,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Image,
   useColorMode,
 } from "@chakra-ui/react";
@@ -45,11 +41,37 @@ export function Navbar() {
             bgClip="text"
             fontWeight="extrabold"
           >
-            {/* Replace this with your own branding */}
-            THIRDMART
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              height="40px"
+            />
           </Heading>
         </Box>
+        <Flex display={{ lg: "flex", base: "none" }} gap="20px" my="auto">
+          <Box>
+            <Link href="/" _hover={{ textDecoration: "none" }}>
+              Home
+            </Link>
+          </Box>
+          <Box>
+            <Link href="/launchpad" _hover={{ textDecoration: "none" }}>
+              Launchpad
+            </Link>
+          </Box>
+          <Box>
+            <Link href="/about" _hover={{ textDecoration: "none" }}>
+              About
+            </Link>
+          </Box>
+          <Box>
+            <Link href="/contact" _hover={{ textDecoration: "none" }}>
+              Contact
+            </Link>
+          </Box>
+        </Flex>
         <Box display={{ lg: "block", base: "none" }}>
+        <Flex alignItems="center">
           <ToggleThemeButton />
           {account && wallet ? (
             <ProfileButton address={account.address} wallet={wallet} />
@@ -60,6 +82,7 @@ export function Navbar() {
               connectButton={{ style: { height: "56px" } }}
             />
           )}
+          </Flex>
         </Box>
         <SideMenu />
       </Flex>
@@ -79,37 +102,20 @@ function ProfileButton({
   const { data: ensAvatar } = useGetENSAvatar({ ensName });
   const { colorMode } = useColorMode();
   return (
-    <Menu>
-      <MenuButton as={Button} height="56px">
+    <Box>
+      <Button height="56px">
         <Flex direction="row" gap="5">
           <Box my="auto">
             <FiUser size={30} />
           </Box>
           <Image
-            src={ensAvatar ?? blo(address as `0x${string}`)}
+            src={ensAvatar || blo(address as `0x${string}`)}
             height="40px"
             rounded="8px"
           />
         </Flex>
-      </MenuButton>
-      <MenuList>
-        <MenuItem display="flex">
-          <Box mx="auto">
-            <ConnectButton client={client} theme={colorMode} />
-          </Box>
-        </MenuItem>
-        <MenuItem as={Link} href="/profile" _hover={{ textDecoration: "none" }}>
-          Profile {ensName ? `(${ensName})` : ""}
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            if (wallet) disconnect(wallet);
-          }}
-        >
-          Logout
-        </MenuItem>
-      </MenuList>
-    </Menu>
+      </Button>
+    </Box>
   );
 }
 

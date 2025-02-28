@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/shared/Providers";
+import Head from 'next/head';
+import { Montserrat } from 'next/font/google';
+const montserrat = Montserrat({ subsets: ['latin'] });
+import { ColorModeScript } from "@chakra-ui/react";
 import { Navbar } from "@/components/shared/Navbar";
 import { AutoConnect } from "thirdweb/react";
 import { client } from "@/consts/client";
@@ -15,8 +19,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body style={{ paddingBottom: "100px" }}>
+		<html lang="en" data-theme="dark" style={{ colorScheme: "dark" }} className={montserrat.className}>
+			<Head>
+				<ColorModeScript initialColorMode="dark" />
+			</Head>
+			<body className="chakra-ui-dark" style={{ paddingBottom: "100px" }}>
 				<Providers>
 					<AutoConnect client={client} />
 					<Navbar />

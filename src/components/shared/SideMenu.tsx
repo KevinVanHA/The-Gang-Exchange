@@ -33,7 +33,7 @@ export function SideMenu() {
   const btnRef = useRef<HTMLButtonElement>(null);
   const { disconnect } = useDisconnect();
   const account = useActiveAccount();
-  const { data: ensName } = useGetENSName({ address: account?.address });
+  const { data: ensName } = useGetENSName({ address: account?.address || "" });
   const { data: ensAvatar } = useGetENSAvatar({ ensName });
   const { colorMode, toggleColorMode } = useColorMode();
   const wallet = useActiveWallet();
@@ -49,7 +49,7 @@ export function SideMenu() {
       </Button>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent style={{ zIndex: 1000 }}>
           <DrawerCloseButton />
           <DrawerHeader>
             <Button height="56px" w="56px" onClick={toggleColorMode} mr="10px">
@@ -57,14 +57,23 @@ export function SideMenu() {
             </Button>
           </DrawerHeader>
           <DrawerBody>
-            <Box>
-              <ConnectButton theme={colorMode} client={client} />
-            </Box>
             {account && (
-              <Link href="/profile">
+              <Link href="/profile" _hover={{ textDecoration: "none" }}>
                 Profile {ensName ? `(${ensName})` : ""}
               </Link>
             )}
+            <Link href="/" _hover={{ textDecoration: "none" }}>
+              Home
+            </Link>
+            <Link href="/launchpad" _hover={{ textDecoration: "none" }}>
+              Launchpad
+            </Link>
+            <Link href="/about" _hover={{ textDecoration: "none" }}>
+              About
+            </Link>
+            <Link href="/contact" _hover={{ textDecoration: "none" }}>
+              Contact
+            </Link>
           </DrawerBody>
           <DrawerFooter>
             {account && (
