@@ -54,9 +54,9 @@ export function Collection() {
           </Heading>
           {contractMetadata?.description && (
             <Text
-              maxW={{ lg: "500px", base: "300px" }}
+              maxW={{ lg: "800px", base: "500px" }}
               mx="auto"
-              textAlign="center"
+              textAlign="justify"
             >
               {contractMetadata.description}
             </Text>

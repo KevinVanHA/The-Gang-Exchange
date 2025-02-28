@@ -33,11 +33,14 @@ export function ListingGrid() {
           }/token/${item.asset.id.toString()}`}
           _hover={{ textDecoration: "none" }}
         >
-          <Flex direction="column">
-            <MediaRenderer client={client} src={item.asset.metadata.image} />
-            <Text>{item.asset?.metadata?.name ?? "Unknown item"}</Text>
-            <Text>Price</Text>
-            <Text>
+          <Flex direction="column" align="center">
+            <Box boxShadow="md" rounded="lg" overflow="hidden">
+              <MediaRenderer client={client} src={item.asset.metadata.image} />
+            </Box>
+            <Text textAlign="center" mt="2">{item.asset?.metadata?.name ?? "Unknown item"}</Text>
+            
+            <Text textAlign="center" mt="2">
+              Price:   
               {item.currencyValuePerToken.displayValue}{" "}
               {item.currencyValuePerToken.symbol}
             </Text>

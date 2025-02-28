@@ -76,9 +76,11 @@ export function AllNftsGrid() {
               }/token/${item.id.toString()}`}
               _hover={{ textDecoration: "none" }}
             >
-              <Flex direction="column">
-                <MediaRenderer client={client} src={item.metadata.image} />
-                <Text>{item.metadata?.name ?? "Unknown item"}</Text>
+              <Flex direction="column" align="center">
+                <Box boxShadow="md" rounded="lg" overflow="hidden">
+                  <MediaRenderer client={client} src={item.metadata.image} />
+                </Box>
+                <Text textAlign="center" mt="2">{item.metadata?.name ?? "Unknown item"}</Text>
               </Flex>
             </Box>
           ))
@@ -122,7 +124,7 @@ export function AllNftsGrid() {
           >
             <MdKeyboardDoubleArrowRight />
           </Button>
-          {/* <Select
+          <Select
             w="80px"
             onChange={(e) => setItemsPerPage(Number(e.target.value))}
           >
@@ -131,7 +133,7 @@ export function AllNftsGrid() {
                 {item}
               </option>
             ))}
-          </Select> */}
+          </Select>
         </Flex>
       </Box>
     </>
