@@ -6,7 +6,7 @@ export default function MarketplaceLayout({
   params,
 }: {
   children: ReactNode;
-  params: { contractAddress: string; chainId: string };
+  params: Promise<any>;
 }) {
   return (
     <MarketplaceProvider
