@@ -5,7 +5,7 @@ import { Token } from "@/components/token-page/TokenPage";
 export default function ListingPage({
   params,
 }: {
-  params: { tokenId: string };
+  params:  { tokenId: string };
 }) {
   const { tokenId } = params;
   if (!tokenId) {

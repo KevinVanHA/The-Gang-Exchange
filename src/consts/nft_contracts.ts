@@ -24,7 +24,7 @@ export const NFT_CONTRACTS: NftContract[] = [
     chain: polygon,
     title: "Gangskullz",
     thumbnailUrl:
-      "/public/collections/Gangskullz.webp",
+      "/collections/Gangskullz.webp",
     type: "ERC721",
   },
   {
