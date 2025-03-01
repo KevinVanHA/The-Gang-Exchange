@@ -9,7 +9,7 @@ import { isAddress } from "thirdweb/utils";
 export default function PublicProfilePage({
   params,
 }: {
-  params: { addressOrENS: string };
+  params: any;
 }) {
   const { addressOrENS } = params;
   const isValidEvmAddress = isAddress(addressOrENS);

@@ -32,7 +32,7 @@ export const NFT_CONTRACTS: NftContract[] = [
     chain: polygon,
     title: "Gangskullz Certified OG's",
     thumbnailUrl:
-      "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeidaadqapi7twzd7pjp24tu4ngsr3teubrhop7hg3jk3oj6lqysfgm/OS-LOGO.png",
+      "/collections/GangskullzCO.webp",
     type: "ERC721",
   },
 
@@ -42,7 +42,7 @@ export const NFT_CONTRACTS: NftContract[] = [
     title: "Mischief Mythology",
     description: "",
     thumbnailUrl:
-      "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/Qmct2vS78Uwug3zVtqQognskPPRmd4wRQiaDAQWt1kRJws/0.png",
+      "/collections/MisschiefMythology.webp",
     type: "ERC721",
   },
   {
@@ -50,7 +50,7 @@ export const NFT_CONTRACTS: NftContract[] = [
     chain: polygon,
     title: "Sick Skull Gang: Omega",
     thumbnailUrl:
-      "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeiay3ffxy3os56bvnu5cmq7gids4v6n4hf5nvvcb3gy2dzavi3ltnu/profile.jpg",
+      "/collections/SickSkullGangOmega.webp",
     slug: "gorobot",
     type: "ERC721",
   },

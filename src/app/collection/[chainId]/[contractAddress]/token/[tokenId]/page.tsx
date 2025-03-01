@@ -2,11 +2,9 @@
 
 import { Token } from "@/components/token-page/TokenPage";
 
-export default function ListingPage({
+export default async function ListingPage({
   params,
-}: {
-  params:  { tokenId: string };
-}) {
+}: { params: any }) {
   const { tokenId } = params;
   if (!tokenId) {
     throw new Error("Missing listingId");

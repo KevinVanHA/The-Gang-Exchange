@@ -1,28 +1,22 @@
 import MarketplaceProvider from "@/hooks/useMarketplaceContext";
-import type { ReactNode } from "react";
 import React from 'react';
 
-interface MarketplaceLayoutProps {
-  params: {
-    chainId: string;
-    contractAddress: string;
-  };
-  children: ReactNode;
-}
-
-const MarketplaceLayout: React.FC<MarketplaceLayoutProps> = async ({
+export default async function MarketplaceLayout({
   children,
   params,
-}) => {
-  const awaitedParams = await params;
+}: {
+  children: React.ReactNode;
+  params: any;
+}) {
+  // Await the params Promise to get the actual values
+  const resolvedParams = await params;
+  
   return (
     <MarketplaceProvider
-      chainId={awaitedParams.chainId}
-      contractAddress={awaitedParams.contractAddress}
+      chainId={resolvedParams.chainId}
+      contractAddress={resolvedParams.contractAddress}
     >
       {children}
     </MarketplaceProvider>
   );
-};
-
-export default MarketplaceLayout;
+}
