@@ -60,7 +60,7 @@ export const NFT_CONTRACTS: NftContract[] = [
     title: "Sick Ape Antisocial Group",
     thumbnailUrl:
       "https://258c828e8cc853bf5e0efd001055fb39.ipfscdn.io/ipfs/bafybeidec7x6bptqmrxgptaedd7wfwxbsccqfogzwfsd4a7duxn4sdmnxy/0.png",
-    type: "ERC721",
+    type: "ERC1155",
   },
 
 ];

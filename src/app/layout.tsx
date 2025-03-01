@@ -23,13 +23,13 @@ export default function RootLayout({
 			<Head>
 				<ColorModeScript initialColorMode="dark" />
 			</Head>
-			<body className="chakra-ui-dark" style={{ paddingBottom: "100px" }}>
-				<Providers>
-					<AutoConnect client={client} />
-					<Navbar />
-					{children}
-				</Providers>
-			</body>
+			   <body className="chakra-ui-dark" style={{ paddingBottom: "100px" }}>
+			     <Providers>
+			       <AutoConnect client={client} />
+			       <Navbar />
+			       {children}
+			     </Providers>
+			   </body>
 		</html>
 	);
 }

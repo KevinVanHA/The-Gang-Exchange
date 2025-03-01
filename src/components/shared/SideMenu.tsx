@@ -39,7 +39,7 @@ export function SideMenu() {
   const wallet = useActiveWallet();
 
   return (
-    <>
+    <Box key={colorMode}> {/* Added key prop to force re-render */}
       <Button
         display={{ lg: "none", base: "block" }}
         ref={btnRef}
@@ -49,31 +49,41 @@ export function SideMenu() {
       </Button>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent style={{ zIndex: 1000 }}>
+        <DrawerContent style={{ zIndex: 1000, width: '200px' }} >
           <DrawerCloseButton />
-          <DrawerHeader>
+          <DrawerHeader textAlign="center">
             <Button height="56px" w="56px" onClick={toggleColorMode} mr="10px">
               {colorMode === "light" ? <FaRegMoon /> : <IoSunny />}
             </Button>
           </DrawerHeader>
-          <DrawerBody>
+          <DrawerBody textAlign="center">
             {account && (
-              <Link href="/profile" _hover={{ textDecoration: "none" }}>
-                Profile {ensName ? `(${ensName})` : ""}
-              </Link>
+              <Box display="block" mb={2}>
+                <Link href="/profile" _hover={{ textDecoration: "none" }}>
+                  Profile {ensName ? `(${ensName})` : ""}
+                </Link>
+              </Box>
             )}
-            <Link href="/" _hover={{ textDecoration: "none" }}>
-              Home
-            </Link>
-            <Link href="/launchpad" _hover={{ textDecoration: "none" }}>
-              Launchpad
-            </Link>
-            <Link href="/about" _hover={{ textDecoration: "none" }}>
-              About
-            </Link>
-            <Link href="/contact" _hover={{ textDecoration: "none" }}>
-              Contact
-            </Link>
+            <Box display="block" mb={2}>
+              <Link href="/" _hover={{ textDecoration: "none" }}>
+                Home
+              </Link>
+            </Box>
+            <Box display="block" mb={2}>
+              <Link href="/launchpad" _hover={{ textDecoration: "none" }}>
+                Launchpad
+              </Link>
+            </Box>
+            <Box display="block" mb={2}>
+              <Link href="/about" _hover={{ textDecoration: "none" }}>
+                About
+              </Link>
+            </Box>
+            <Box display="block" mb={2}>
+              <Link href="/contact" _hover={{ textDecoration: "none" }}>
+                Contact
+              </Link>
+            </Box>
           </DrawerBody>
           <DrawerFooter>
             {account && (
@@ -88,6 +98,6 @@ export function SideMenu() {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-    </>
+    </Box>
   );
 }

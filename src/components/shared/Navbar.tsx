@@ -30,9 +30,9 @@ export function Navbar() {
   const wallet = useActiveWallet();
   const { colorMode } = useColorMode();
   return (
-    <Box py="30px" px={{ base: "20px", lg: "50px" }}>
-      <Flex direction="row" justifyContent="space-between">
-        <Box my="auto">
+    <Box py="30px" px={{ base: "20px", lg: "50px" }} maxWidth="2000px" margin="0 auto">
+      <Flex direction="row" justifyContent="space-between" alignItems="center">
+        <Box>
           <Heading
             as={Link}
             href="/"
@@ -44,7 +44,7 @@ export function Navbar() {
             <Image
               src="/images/logo.png"
               alt="Logo"
-              height="40px"
+              height="80px"
             />
           </Heading>
         </Box>
@@ -70,8 +70,7 @@ export function Navbar() {
             </Link>
           </Box>
         </Flex>
-        <Box display={{ lg: "block", base: "none" }}>
-        <Flex alignItems="center">
+        <Flex display={{ lg: "flex", base: "none" }} alignItems="center" justifyContent="flex-end" gap="20px">
           <ToggleThemeButton />
           {account && wallet ? (
             <ProfileButton address={account.address} wallet={wallet} />
@@ -82,9 +81,10 @@ export function Navbar() {
               connectButton={{ style: { height: "56px" } }}
             />
           )}
-          </Flex>
-        </Box>
-        <SideMenu />
+        </Flex>
+        <Flex>
+          <SideMenu />
+        </Flex>
       </Flex>
     </Box>
   );
@@ -102,9 +102,9 @@ function ProfileButton({
   const { data: ensAvatar } = useGetENSAvatar({ ensName });
   const { colorMode } = useColorMode();
   return (
-    <Box>
+    <Link href={`/profile/${address}`} _hover={{ textDecoration: "none" }}>
       <Button height="56px">
-        <Flex direction="row" gap="5">
+        <Flex direction="row" gap="5" alignItems="center">
           <Box my="auto">
             <FiUser size={30} />
           </Box>
@@ -115,7 +115,7 @@ function ProfileButton({
           />
         </Flex>
       </Button>
-    </Box>
+    </Link>
   );
 }
 

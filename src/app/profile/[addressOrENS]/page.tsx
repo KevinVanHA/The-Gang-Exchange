@@ -6,12 +6,13 @@ import { Box, Text } from "@chakra-ui/react";
 import { notFound } from "next/navigation";
 import { isAddress } from "thirdweb/utils";
 
-export default function PublicProfilePage({
+export default async function PublicProfilePage({
   params,
 }: {
   params: any;
 }) {
-  const { addressOrENS } = params;
+  const paramsPromise = Promise.resolve(params);
+  const { addressOrENS } = await paramsPromise;
   const isValidEvmAddress = isAddress(addressOrENS);
   const { data: resolvedAddress, isLoading } = useResolveENSAddress({
     text: addressOrENS,
