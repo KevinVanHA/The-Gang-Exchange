@@ -39,7 +39,7 @@ export function SideMenu() {
   const wallet = useActiveWallet();
 
   return (
-    <Box key={colorMode}> {/* Added key prop to force re-render */}
+    <Box> {/* Added key prop to force re-render */}
       <Button
         display={{ lg: "none", base: "block" }}
         ref={btnRef}
