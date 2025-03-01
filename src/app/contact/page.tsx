@@ -92,6 +92,7 @@ export default function Contact() {
       direction={{ base: "column", md: "row" }}
       alignItems="center"
       justifyContent="center"
+    maxWidth="80vw"
     >
       <ContactForm />
       <Box
