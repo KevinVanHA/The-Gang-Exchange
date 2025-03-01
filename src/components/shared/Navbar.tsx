@@ -82,7 +82,7 @@ export function Navbar() {
             />
           )}
         </Flex>
-        <Flex>
+        <Flex display={{ base: "flex", lg: "none" }}>
           <SideMenu />
         </Flex>
       </Flex>
