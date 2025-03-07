@@ -209,7 +209,7 @@ export default function Launchpad() {
             />
             <Input
               type="text"
-              placeholder="Search Project"
+              placeholder="Search Projects"
               bg={inputBg}
               color={textColor}
               value={searchTerm}
