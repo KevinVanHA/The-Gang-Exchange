@@ -10,7 +10,7 @@ import { client } from "@/consts/client";
 
 export const metadata: Metadata = {
 	title: "Marketplace",
-	description: "",
+	description: " Hustle for Gang Gold. Stack Up. Dominate the Market. ",
 };
 
 export default function RootLayout({
