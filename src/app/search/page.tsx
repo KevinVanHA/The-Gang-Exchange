@@ -12,7 +12,7 @@ export default function SearchPage() {
   // Filter collections based on the query (case-insensitive)
   const filteredCollections = query
     ? NFT_CONTRACTS.filter(contract =>
-        contract.title.toLowerCase().includes(query.toLowerCase())
+        contract.title && contract.title.toLowerCase().includes(query.toLowerCase())
       )
     : [];
 
