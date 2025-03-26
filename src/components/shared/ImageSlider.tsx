@@ -30,7 +30,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, maxW, mx, mt }) => {
       <div className="slider-container">
         <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex + 1}`}  />
         <div className="image-overlay">
-          <h3>Hustle for Gang Gold. Stack Up. Dominate the Market.</h3>
+          <h2>Hustle for Gang Gold. Stack Up. Dominate the Market.</h2>
         </div>
       </div>
       <button className="prev-button" onClick={prevSlide}>
